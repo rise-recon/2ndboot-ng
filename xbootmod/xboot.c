@@ -18,7 +18,7 @@
  *  GNU General Public License for more details.
  *
  *  You should have received a copy of the GNU General Public License
- *  along with 2ndboot-ng.  If not, see <http://www.gnu.org/licenses/>.
+ *  along with 2ndboot-ng.  If not, sbee <http://www.gnu.org/licenses/>.
  * 
 */
 
@@ -36,8 +36,8 @@
 
 #include "xboot.h"
 
-#ifdef __PLAT_TI_OMAP3430__
-#include <mach/omap34xx.h>
+#ifdef __PLAT_MSM_7x30__
+#include <mach/msm_iomap-7x30.h>
 #endif
 
 #define CTRL_DEVNAME "xbootctrl"
@@ -138,7 +138,7 @@ static struct file_operations xbootctrl_ops = {
 	.owner		=	THIS_MODULE,
 	.open		=	xbootctrl_open,
 	.release	=	xbootctrl_release,
-	.ioctl		=	xbootctrl_ioctl,
+	.unlocked_ioctl	=	xbootctrl_ioctl,
 	.write		=	xbootctrl_write,
 
 };
